@@ -1,6 +1,6 @@
 #!/bin/bash
 
-PROG="./prog"
+PROG="./phonebook"
 SRC_DIR="./src"
 LEAKS_CHECK=true
 
