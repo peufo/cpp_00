@@ -15,9 +15,9 @@ int main(int ac, char **av)
 		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
 		return (0);
 	}
-
-	for (int i = 1; i < ac; i++)
-		std::cout << toUpper(av[i]);
+	std::cout << toUpper(av[1]);
+	for (int i = 2; i < ac; i++)
+		std::cout << " " << toUpper(av[i]);
 	std::cout << std::endl;
 	return (0);
 }
