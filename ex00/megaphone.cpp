@@ -1,6 +1,6 @@
 #include <iostream>
 
-static std::string to_upper(std::string str)
+static std::string toUpper(std::string str)
 {
 	for (std::string::iterator it = str.begin(); it != str.end(); it++)
 		if ('a' <= *it && *it <= 'z')
@@ -17,7 +17,7 @@ int main(int ac, char **av)
 	}
 
 	for (int i = 1; i < ac; i++)
-		std::cout << to_upper(av[i]);
+		std::cout << toUpper(av[i]);
 	std::cout << std::endl;
 	return (0);
 }

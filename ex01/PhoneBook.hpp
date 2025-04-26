@@ -1,4 +1,6 @@
-#pragma once
+#ifndef PHONEBOOK_HPP
+#define PHONEBOOK_HPP
+
 #include <iostream>
 #include <iomanip>
 #include "Contact.hpp"
@@ -11,7 +13,10 @@ class PhoneBook
 	public:
 		PhoneBook();
 		~PhoneBook();
-		void add_contact(Contact & contact);
-		void add_contact();
+		void addContact(Contact & contact);
+		void addContact();
 		void search() const;
 };
+
+
+#endif

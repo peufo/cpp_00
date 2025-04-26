@@ -21,5 +21,5 @@ class Contact
 			std::string secret);
 		~Contact();
 		void print() const;
-		void print_row(int index) const;
+		void printRow(int index) const;
 };

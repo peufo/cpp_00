@@ -19,14 +19,14 @@ static void fill_field(const std::string label, std::string & field)
 	}
 }
 
-void PhoneBook::add_contact(Contact & contact)
+void PhoneBook::addContact(Contact & contact)
 {
 	if (this->contact_index >= 8)
 		this->contact_index = 0;
 	this->contacts[this->contact_index++] = contact;
 }
 
-void PhoneBook::add_contact()
+void PhoneBook::addContact()
 {
 	std::string first_name = "";
 	std::string last_name = "";
@@ -42,7 +42,7 @@ void PhoneBook::add_contact()
 	fill_field("Secret 🤫 ", secret);
 
 	Contact contact(first_name, last_name, nickname, phone, secret);
-	this->add_contact(contact);
+	this->addContact(contact);
 	std::cout << "Thanks, new contact added !" << std::endl << std::endl;
 }
 
@@ -65,7 +65,7 @@ void PhoneBook::search() const
 
 	print_frame_row("┌", "┬", "┐");
 	for (int i = 0; i < 8; i++)
-		this->contacts[i].print_row(i);
+		this->contacts[i].printRow(i);
 	print_frame_row("└", "┴", "┘");
 	std::cout << "Contact index : ";
 	std::cin >> index;

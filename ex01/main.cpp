@@ -24,7 +24,7 @@ int main()
 		std::cin >> command;
 		if (command == "ADD")
 		{
-			book.add_contact();
+			book.addContact();
 			continue ;
 		}
 		if (command == "SEARCH")

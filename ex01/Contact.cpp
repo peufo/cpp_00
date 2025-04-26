@@ -46,7 +46,7 @@ static const std::string truncat_str(std::string const str, size_t len)
 	return (res);
 }
 
-void Contact::print_row(int index) const
+void Contact::printRow(int index) const
 {
 	static int col_size = 10;
 
