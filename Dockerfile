@@ -9,9 +9,6 @@ RUN apk add --no-cache g++
 RUN apk add --no-cache make
 RUN apk add --no-cache gdb
 RUN apk add --no-cache mandoc man-pages
-RUN apk add --no-cache libx11
-RUN apk add --no-cache libxv
-RUN apk add --no-cache libx11-dev
 RUN apk add --no-cache libc-dev
 RUN apk add --no-cache readline-dev
 RUN apk add --no-cache libxext-dev
