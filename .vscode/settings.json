@@ -1,7 +1,0 @@
-{
-  "files.associations": {
-    "*.astro": "astro",
-    "istream": "cpp",
-    "string": "cpp"
-  }
-}
