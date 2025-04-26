@@ -21,7 +21,7 @@ int main()
 	while (true)
 	{
 		std::cout << "PHONEBOOK> ";
-		std::cin >> command;
+		getline(std::cin, command);
 		if (command == "ADD")
 		{
 			book.addContact();

@@ -1,6 +1,6 @@
 #include "PhoneBook.hpp"
 
-PhoneBook::PhoneBook(): contact_index(0)
+PhoneBook::PhoneBook(): insertIndex(0)
 {
 }
 
@@ -21,9 +21,9 @@ static void fill_field(const std::string label, std::string & field)
 
 void PhoneBook::addContact(Contact & contact)
 {
-	if (this->contact_index >= 8)
-		this->contact_index = 0;
-	this->contacts[this->contact_index++] = contact;
+	if (this->insertIndex >= 8)
+		this->insertIndex = 0;
+	this->contacts[this->insertIndex++] = contact;
 }
 
 void PhoneBook::addContact()
@@ -34,7 +34,6 @@ void PhoneBook::addContact()
 	std::string phone = "";
 	std::string secret = "";
 
-	std::cin.ignore();
 	fill_field("First name", first_name);
 	fill_field("Last name", last_name);
 	fill_field("Nickname", nickname);
@@ -43,7 +42,7 @@ void PhoneBook::addContact()
 
 	Contact contact(first_name, last_name, nickname, phone, secret);
 	this->addContact(contact);
-	std::cout << "Thanks, new contact added !" << std::endl << std::endl;
+	std::cout << "Thanks, new contact added !\n" << std::endl;
 }
 
 static void print_frame_row(std::string corner_a, std::string col, std::string corner_b)
@@ -61,17 +60,24 @@ static void print_frame_row(std::string corner_a, std::string col, std::string c
 
 void PhoneBook::search() const
 {
-	int index;
+	std::string input;
+	int	index;
 
 	print_frame_row("┌", "┬", "┐");
 	for (int i = 0; i < 8; i++)
 		this->contacts[i].printRow(i);
 	print_frame_row("└", "┴", "┘");
 	std::cout << "Contact index : ";
-	std::cin >> index;
+	std::getline(std::cin, input);
+	if (input[0] < '0' || input[0] > '9')
+	{
+		std::cout << "Please, enter a numerical value" << std::endl;
+		return ;
+	}
+	index = std::atoi(input.c_str());
 	if (index < 0 || index > 7)
 	{
-		std::cout << "Sorry, contact index " << index << " is out of the range" << std::endl;
+		std::cout << "Sorry, contact index " << index << " is out of the range (0-7)" << std::endl;
 		return ;
 	}
 	this->contacts[index].print();

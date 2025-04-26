@@ -28,7 +28,8 @@ Contact::~Contact()
 
 void Contact::print() const
 {
-	std::cout << "[name]:\t\t" << this->first_name << " " << this->last_name << std::endl;
+	std::cout << "[first_name]:\t" << this->first_name << std::endl;
+	std::cout << "[last_name]:\t" << this->last_name << std::endl;
 	std::cout << "[nickname]:\t" << this->nickname << std::endl;
 	std::cout << "[phone]:\t" << this->phone << std::endl;
 	std::cout << "[secret]:\t" << this->secret << std::endl;
@@ -46,22 +47,23 @@ static const std::string truncat_str(std::string const str, size_t len)
 	return (res);
 }
 
+static void print_col(const std::string& str, int colSize)
+{
+	std::cout << std::setfill(' ') << std::setw(colSize);
+	std::cout << truncat_str(str, colSize);
+	std::cout << "│";
+}
+
 void Contact::printRow(int index) const
 {
-	static int col_size = 10;
+	static int colSize = 10;
 
 	std::cout << "│";
-	std::cout << std::setfill(' ') << std::setw(col_size);
+	std::cout << std::setfill(' ') << std::setw(colSize);
 	std::cout << index;
 	std::cout << "│";
-	std::cout << std::setfill(' ') << std::setw(col_size);
-	std::cout << truncat_str(this->first_name, col_size);
-	std::cout << "│";
-	std::cout << std::setfill(' ') << std::setw(col_size);
-	std::cout << truncat_str(this->last_name, col_size);
-	std::cout << "│";
-	std::cout << std::setfill(' ') << std::setw(col_size);
-	std::cout << truncat_str(this->nickname, col_size);
-	std::cout << "│";
+	print_col(this->first_name, colSize);
+	print_col(this->last_name, colSize);
+	print_col(this->nickname, colSize);
 	std::cout << std::endl;
 }
