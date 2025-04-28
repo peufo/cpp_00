@@ -18,7 +18,7 @@ int main()
 
 	std::cout << "Welcome to your awesome PHONEBOOK !\n" << std::endl;
 	print_usage();
-	while (true)
+	while (!std::cin.eof())
 	{
 		std::cout << "PHONEBOOK> ";
 		getline(std::cin, command);
